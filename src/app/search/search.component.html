@@ -1,0 +1,88 @@
+<mat-card>
+    <div style="width: fit-content; margin-left: auto; margin-right: auto;">
+            <h2> Search Twitter for resources</h2>
+    </div>
+    
+  <form style="width: fit-content;
+  margin-left: auto;
+  margin-right: auto;">
+
+    <div class="row" style="padding-bottom: 10px;  ">
+      <div style="display: inline-block; padding-right: 30px;  ">
+
+
+        <mat-form-field>
+          <mat-label><i class="fa fa-location-arrow" style=" color: #1DA1F2;" aria-hidden="true"></i> City</mat-label>
+          <input autocomplete="off" name="city" [(ngModel)]="city" matInput value="">
+        </mat-form-field>
+      </div>
+
+
+      <div style="display: inline-block; padding-right: 30px">
+        <mat-form-field>
+          <mat-label><i style=" color: #1DA1F2;" class="fa fa-list-ul" aria-hidden="true"></i> Requirements</mat-label>
+          <mat-select [formControl]="requirements" multiple>
+            <mat-option (onSelectionChange)="getRequirements($event)" *ngFor="let requirements of requirementsList" [value]="requirements">{{requirements}}
+            </mat-option>
+          </mat-select>
+
+        </mat-form-field>
+
+
+      </div>
+
+      <div style="display: inline-block; padding-right: 30px">
+
+
+        <mat-form-field>
+          <mat-label><i style=" color: #1DA1F2;" class="fa fa-exclamation" aria-hidden="true"></i> Other</mat-label>
+          <input autocomplete="off" name="other" [(ngModel)]="other" placeholder="Any other keywords" matInput value="">
+        </mat-form-field>
+      </div>
+
+    </div>
+    <div class="row">
+      <div style="display: inline-block; padding-right: 30px">
+        <mat-checkbox name="verified" [(ngModel)]="verified">Verified Information</mat-checkbox>
+
+      </div>
+      <div style="display: inline-block; padding-right: 30px">
+        <mat-checkbox name="required" [(ngModel)]="required">contains 'needed' or 'required'</mat-checkbox>
+
+      </div>
+      <div style="display: inline-block; padding-right: 30px">
+        <mat-checkbox name="nearMe" [(ngModel)]="nearMe">Show tweets near me</mat-checkbox>
+
+      </div>
+    </div>
+    <div style="width: fit-content;  margin-left: auto; margin-right: auto; padding-top: 30px">
+      <button *ngIf = "required.length>0 || city.length>0 || requirementArray.length>0" (click)="searchTwitter()" style=" background-color: #1DA1F2; color: white" mat-raised-button><i style=" color: back;"
+          class="fa fa-search" aria-hidden="true"></i> Search Twitter</button>
+      <button disabled *ngIf = "other.length==0 && city.length==0 && requirementArray.length == 0" (click)="searchTwitter()" style=" background-color: #2b76a5; color: lightgray" mat-raised-button><i style=" color: back;"
+          class="fa fa-search" aria-hidden="true"></i> Search Twitter</button>
+    </div>
+
+
+  </form>
+
+
+</mat-card>
+<mat-card>
+  <div style="width: fit-content; margin-left: auto; margin-right: auto">
+        <div style="width: fit-content; margin-left: auto; margin-right: auto;">
+                <h2> Tips</h2>
+        </div>
+    <mat-list>
+      <mat-list-item>• Make sure your twitter search is sorted by Latest to get the most recent data. </mat-list-item>
+      <br>
+      <mat-list-item>• Don't select the 'verified' checkbox if you are in a small town. </mat-list-item>
+      <br>
+      <mat-list-item>• Select only limited key words for an efficient search. </mat-list-item>
+    </mat-list>
+  </div>
+
+</mat-card>
+
+<mat-card>
+  <app-charts> </app-charts>
+</mat-card>

@@ -1,0 +1,23 @@
+
+
+@media only screen and (max-width: 600px) {
+    .tabClass {
+        width: 90%; 
+    }
+  }
+@media only screen and (min-width: 600px) {
+    .tabClass {
+        width: fit-content !important; height: 120px !important; float: left; margin-right: 10px;
+    }
+  }
+
+
+  img {
+    width: 80px; padding-left: 10px; padding-right: 10px; height: 80px
+  }
+
+  picture {
+      cursor: pointer;
+  }
+
+
