@@ -21,6 +21,9 @@ export class ChartsComponent implements OnInit {
    }
    barChartPopulation() {
     HighCharts.chart('barChart', {
+      credits: {
+        enabled: false
+      },
       chart: {
         type: 'column'
       },
@@ -38,7 +41,7 @@ export class ChartsComponent implements OnInit {
         },
       },
       tooltip: {
-        valueSuffix: ' numbers'
+        valueSuffix: ' people'
       },
       colors: [
         '#4572A7', 
