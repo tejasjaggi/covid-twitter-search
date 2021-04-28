@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as HighCharts from 'highcharts';
 import { HttpClient } from '@angular/common/http';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-charts',
@@ -13,6 +14,11 @@ export class ChartsComponent implements OnInit {
   dailyDeceased: any = [];
   dailyRecovered: any = [];
   date: any = [];
+  stateData: any = [];
+  states: any = [];
+  barChartData: any;
+  state = new FormControl();
+  currentState: any = "Total";
  
 
   constructor(private http: HttpClient) {
@@ -44,9 +50,9 @@ export class ChartsComponent implements OnInit {
         valueSuffix: ' people'
       },
       colors: [
-        '#4572A7', 
+        '#00adb5', 
         
-        '#B5CA92'
+        '#2978b5'
         ],
       plotOptions: {
         column: {
@@ -67,8 +73,11 @@ export class ChartsComponent implements OnInit {
     });
   }
 
-  pieChartBrowser() {
+  pieChartBrowser(state) {
     HighCharts.chart('pieChart', {
+      credits: {
+        enabled: false
+      },
       chart: {
         plotBackgroundColor: null,
         plotBorderWidth: null,
@@ -76,55 +85,43 @@ export class ChartsComponent implements OnInit {
         type: 'pie'
       },
       title: {
-        text: 'Browser market shares in October, 2019'
+        text: this.currentState+' data'
       },
       tooltip: {
-        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        pointFormat: '{series.name}: <br>{point.percentage:.1f} %<br>total: {point.y}'
       },
+      colors: [     
+        '#f39189',
+        '#9b3675',
+        '#f5c0c0',
+        ],
       plotOptions: {
         pie: {
           allowPointSelect: true,
           cursor: 'pointer',
           dataLabels: {
-            enabled: true,
-            format: '<b>{point.name}</b>: {point.percentage:.1f} %'
-          }
+            enabled: false,
+            format: '{point.percentage:.1f} %<br>count: {point.y}'
+          },
+          showInLegend: true
         }
       },
       series: [{
-        name: 'Brands',
+        name: state,
         colorByPoint: true,
         type: undefined,
         data: [{
-          name: 'Chrome',
-          y: 61.41,
+          name: 'active',
+          y:parseInt(this.barChartData.active),
           sliced: true,
           selected: true
         }, {
-          name: 'Internet Explorer',
-          y: 11.84
+          name: 'confirmed',
+          y:parseInt( this.barChartData.confirmed)
         }, {
-          name: 'Firefox',
-          y: 10.85
-        }, {
-          name: 'Edge',
-          y: 4.67
-        }, {
-          name: 'Safari',
-          y: 4.18
-        }, {
-          name: 'Sogou Explorer',
-          y: 1.64
-        }, {
-          name: 'Opera',
-          y: 1.6
-        }, {
-          name: 'QQ',
-          y: 1.2
-        }, {
-          name: 'Other',
-          y: 2.61
-        }]
+          name: 'deaths',
+          y: parseInt(this.barChartData.deaths)
+        } ]
       }]
     });
   }
@@ -133,25 +130,39 @@ export class ChartsComponent implements OnInit {
     this.http.get<any>('https://api.covid19india.org/data.json').subscribe(data => {
       console.log("DATA ", data)
       this.cases_time_series = data.cases_time_series.slice(data.cases_time_series.length-10,)
+     
      for(let item of this.cases_time_series){
-        console.log(item)
         this.dailyConfirmed.push(parseInt(item.dailyconfirmed))
         this.dailyDeceased.push(parseInt(item.dailydeceased))
         this.dailyRecovered.push(parseInt(item.dailyrecovered))
         this.date.push(item.date)
     }
-      console.log("THISSSS ", this.dailyConfirmed, this.dailyDeceased, this.dailyRecovered, this.date)
+    this.stateData = data.statewise.slice(0,)
+    for(let item of this.stateData){
+      this.states.push(item.state)
+  }
+  this.barChartData = this.stateData.find(o => o.state === 'Total');
+  console.log("THIS ", this.barChartData,)
       this.barChartPopulation();
-    this.pieChartBrowser();
+    this.pieChartBrowser('Total');
     })  
 
 
-
-    
+  
   }
 
   
+changeState(event) {
+  if(event.isUserInput)
+  {
+      console.log("EVENT", event)
+  this.currentState = event.source.value
+  this.barChartData = this.stateData.find(o => o.state === event.source.value);
+  this.pieChartBrowser(event.source.value)
+  }
 
+
+}
   
 
  

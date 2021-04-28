@@ -12,12 +12,9 @@ export class DonationComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  akshayPatra()
+  openWindow(url)
  {
-   window.open("https://www.akshayapatra.org/covid-relief-services?gclid=CjwKCAjw7J6EBhBDEiwA5UUM2qQKSnDDm2xAYSLYYPMp-M8e1kRACwKsZ2VV1ljjmZKQFFeXOd-JdhoCU7IQAvD_BwE", "_blank")
+   window.open(url, "_blank")
  }
-  covidResources()
- {
-   window.open("https://donate.indiacovidresources.in/#Home", "_blank")
- }
+ 
 }

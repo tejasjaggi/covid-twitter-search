@@ -5,7 +5,7 @@
     <picture>
       <source media='(min-width:0px)'
         srcset="https://www.who.int/images/default-source/infographics/who-emblem.png?sfvrsn=877bb56a_2">
-      <img (click)="whoCovid()"  mat-card-image src=""
+      <img (click)="openWindow('https://www.who.int/emergencies/diseases/novel-coronavirus-2019')"  mat-card-image src=""
         alt="World Health Organization: Covid19 page">
     </picture>
 
@@ -19,10 +19,38 @@
     <picture>
       <source media='(min-width:0px)'
         srcset="https://upload.wikimedia.org/wikipedia/commons/7/71/US_CDC_logo.svg">
-      <img (click)="cdcCovid()" style="width: 80px; padding-left: 10px; padding-right: 10px" mat-card-image src=""
-        alt="World Health Organization: Covid19 page">
+      <img (click)="openWindow('https://www.cdc.gov/coronavirus/2019-ncov/communication/print-resources.html?Sort=Date%3A%3Adesc')" style="width: 80px; padding-left: 10px; padding-right: 10px" mat-card-image src=""
+        alt="CDC: Covid19 page">
     </picture>
 
   </div>
   <h3> CDC COVID-19 Page</h3>
+</mat-card>
+<mat-card class="tabClass">
+  <div style="    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;">
+    <picture>
+      <source media='(min-width:0px)'
+        srcset="https://img.collegedekhocdn.com/media/img/institute/logo/PHFI_logos1.jpg">
+      <img (click)="openWindow('https://phfi.org/covid19/covid-resources/')" style="width: 80px; padding-left: 10px; padding-right: 10px" mat-card-image src=""
+        alt="Public Health Foundation of India">
+    </picture>
+
+  </div>
+  <h3>Public Health Foundation of India</h3>
+</mat-card>
+<mat-card class="tabClass">
+  <div style="    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;">
+    <picture>
+      <source media='(min-width:0px)'
+        srcset="https://s3-ap-south-1.amazonaws.com/thebetterindia-english/uploads/2020/07/03121109/tbi-logo.png">
+      <img (click)="openWindow('https://www.thebetterindia.com/covid10-updates-and-resources/')" style="width: 100px; padding-left: 10px; padding-right: 10px" mat-card-image src=""
+        alt="Public Health Foundation of India">
+    </picture>
+
+  </div>
+  <h3>Public Health Foundation of India</h3>
 </mat-card>

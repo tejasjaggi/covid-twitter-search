@@ -17,7 +17,7 @@ export class SearchComponent implements OnInit {
   twitterSearch: any = "https://twitter.com/search?q="
 
   requirements = new FormControl();
-  requirementsList: string[] = ['Beds', 'Oxygen', 'ICU', 'Ambulance', 'Vantilator', 'Fabiflu', 'Remdesivir', 'Food', 'Plasma', 'Tocilizumab', 'Favipiravir'];
+  requirementsList: string[] = ['Beds', 'Oxygen', 'ICU', 'Ambulance', 'Ventilator', 'Fabiflu', 'Remdesivir', 'Food', 'Plasma', 'Tocilizumab', 'Favipiravir'];
   requirementArray: any = [];
 
   constructor() { }

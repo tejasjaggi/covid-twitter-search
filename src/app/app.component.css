@@ -1,19 +1,42 @@
 .footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    background-color: #1DA1F2;
-    color: white;
-    text-align: center;
-  }
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #1DA1F2;
+  color: white;
+  text-align: center;
+}
+
 .header {
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100%;
-    background-color: #1DA1F2;
-    color: white;
-    text-align: center;
-    z-index: 10;
-  }
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  background-color: #1DA1F2;
+  color: white;
+  text-align: center;
+  z-index: 10;
+}
+
+.container {
+  height: 30px;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.scrolling-text {
+  position: absolute;
+  white-space: nowrap;
+  padding-top: 5px;
+}
+
+/* Below doesn't work to pause */
+
+.scrolling-text:hover,
+.container:hover {
+  -moz-animation-play-state: paused;
+  -webkit-animation-play-state: paused;
+  animation-play-state: paused;
+}

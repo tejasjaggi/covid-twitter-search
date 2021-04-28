@@ -1,12 +1,23 @@
-<div class="container">
-        <div class="row">
-          <div class="col-sm">
-            <div id="barChart" style="min-width: 310px; max-width: 800px; height: 400px; margin: 0 auto"></div>
-            <h5 class="card-title text-center">Bar Chart - Population</h5>
+<mat-card>
+        <div class="col-sm">
+          <div style="width: fit-content; margin-left: auto; margin-right: auto">
+            <mat-form-field>
+              <mat-label><i style=" color: #1DA1F2;" class="fa fa-map-marker" aria-hidden="true"></i> States</mat-label>
+              <mat-select [formControl]="state">
+                <mat-option (onSelectionChange)="changeState($event)" *ngFor="let state of states" [value]="state">{{state}}
+                </mat-option>
+              </mat-select>
+      
+            </mat-form-field>
           </div>
-          <!-- <div class="col-sm">
-            <div id="pieChart" style="width:100%; height:400px;"></div>
-            <h5 class="card-title text-center">Pie Chart - Browser market</h5>
-          </div> -->
+      
+          <div id="pieChart" style="width:100%; height:400px;"></div>
         </div>
-      </div>
+      </mat-card>
+<mat-card>
+  <div class="col-sm">
+    <div id="barChart" style="min-width: 310px; max-width: 800px; height: 400px; margin: 0 auto"></div>
+
+  </div>
+</mat-card>
+

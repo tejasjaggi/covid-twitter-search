@@ -1,16 +1,27 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
+import { trigger, state, style, animate, transition } from '@angular/animations';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
+  animations: [
+    trigger('scroll', [
+      state('on', style({left: '-100px'})),
+      transition('* => *', [
+        style({left: '-100px'}),
+        animate(20000, style({left: '100%'}))
+      ])
+    ])
+  ]
 })
 export class AppComponent {
   title = 'covidSearch';
   isSmallScreen: boolean = false;
+  state: any = 0;
 
 
   constructor(private router: Router, public breakpointObserver: BreakpointObserver) {
@@ -20,7 +31,7 @@ export class AppComponent {
 
   ngOnInit() {
     this.breakpointObserver
-      .observe(['(max-width: 1100px)'])
+      .observe(['(max-width: 700px)'])
       .subscribe((state: BreakpointState) => {
         this.isSmallScreen = state.matches;
       });
@@ -68,6 +79,11 @@ export class AppComponent {
     search.style.borderBottom = ''
     donation.style.borderBottom = ''
   }
+
+  scrollDone() {
+    this.state++;
+  }
+
 
   jagmeister()
  {

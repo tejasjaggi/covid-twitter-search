@@ -7,7 +7,7 @@
         <span *ngIf="isSmallScreen" style="font-size: 20px"><i class="fa fa-heartbeat" aria-hidden="true"></i> Covid:
           Twitter Search</span>
         <div class="row" style="padding-left: 30px" *ngIf="!isSmallScreen">
-          <button id="search" (click)="goToSearch()" mat-button><i class="fab fa-twitter"></i> Search Twitter</button>
+          <button id="search" (click)="goToSearch()" style="border-bottom: 3px solid white;" mat-button><i class="fab fa-twitter"></i> Search Twitter</button>
           <button id="resources" (click)="goToResources()" mat-button><i class="fa fa-medkit" aria-hidden="true"></i>
             Covid 19
             Resources</button>
@@ -29,6 +29,12 @@
     </mat-toolbar>
   </mat-card>
 </div>
+
+    <div class="container" *ngIf="!isSmallScreen" style="  background: white; color:#1DA1F2; font-weight: bold; margin-top: 10px">
+        <div class="scrolling-text" [@scroll]="state" (@scroll.done)="scrollDone()">                     For any ideas on new features or any issues that you observe, please reach out to me at me@tejasjaggi.com . Stay Home, Stay Safe!                      </div>
+      </div>
+
+
 
 
 

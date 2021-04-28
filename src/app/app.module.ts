@@ -6,8 +6,8 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import {MatTabsModule} from '@angular/material/tabs';
-import {MatToolbarModule} from '@angular/material/toolbar'; 
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -19,11 +19,12 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { SearchComponent } from './search/search.component';
 import { ResourcesComponent } from './resources/resources.component';
 import { DonationComponent } from './donation/donation.component';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { HttpClientModule } from '@angular/common/http';
-import {MatListModule} from '@angular/material/list';
+import { MatListModule } from '@angular/material/list';
 import { ChartsComponent } from './charts/charts.component';
+import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
 
 
 
@@ -34,10 +35,10 @@ import { ChartsComponent } from './charts/charts.component';
     ResourcesComponent,
     DonationComponent,
     ChartsComponent,
-    
-    
-    
-    
+
+
+
+
   ],
   imports: [
     MatDatepickerModule,
@@ -53,7 +54,7 @@ import { ChartsComponent } from './charts/charts.component';
     MatSelectModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-      BrowserModule,
+    BrowserModule,
     BrowserAnimationsModule,
     MatButtonModule,
     MatCardModule,
@@ -62,7 +63,8 @@ import { ChartsComponent } from './charts/charts.component';
     ReactiveFormsModule,
     MatGridListModule,
     MatCheckboxModule,
-    
+    NgxMatSelectSearchModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
