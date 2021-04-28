@@ -1,0 +1,9 @@
+.leftButton {
+    border-radius: 20px 0px 0px 20px !important;
+    background: #d2e69c !important;
+}
+
+.rightButton {
+    border-radius: 0px 20px 20px 0px !important;
+    background: #28b5b5 !important;
+}

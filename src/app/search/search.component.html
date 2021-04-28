@@ -9,11 +9,18 @@
 
     <div class="row" style="padding-bottom: 10px;  ">
       <div style="display: inline-block; padding-right: 30px;  ">
-
+           
 
         <mat-form-field>
-          <mat-label><i class="fa fa-location-arrow" style=" color: #1DA1F2;" aria-hidden="true"></i> City</mat-label>
-          <input autocomplete="off" name="city" [(ngModel)]="city" matInput value="">
+                <mat-label><i style=" color: #1DA1F2;" class="fa fa-map-marker" aria-hidden="true"></i> City</mat-label>
+                <mat-select [formControl]="state">
+                  <div class="row" style="background:  #f1f1f1; font-weight: bold"><i class="fa fa-search"
+                      aria-hidden="true"></i> <input autocomplete="off" matInput (keyup)="onKey($event.target.value)"
+                      placeholder="Search for City/District"> </div>
+        
+                  <mat-option (onSelectionChange)="changeState($event)" *ngFor="let city of cities"  [value]="city"  >{{city}}
+                  </mat-option>
+                </mat-select>
         </mat-form-field>
       </div>
 
@@ -22,7 +29,7 @@
         <mat-form-field>
           <mat-label><i style=" color: #1DA1F2;" class="fa fa-list-ul" aria-hidden="true"></i> Requirements</mat-label>
           <mat-select [formControl]="requirements" multiple>
-            <mat-option (onSelectionChange)="getRequirements($event)" *ngFor="let requirements of requirementsList" [value]="requirements">{{requirements}}
+            <mat-option (onSelectionChange)="getRequirements($event)" *ngFor="let requirements of requirementsList" [value]="requirements"><i class={{requirements.icon}} aria-hidden="true"></i> {{requirements.value}}
             </mat-option>
           </mat-select>
 
@@ -56,9 +63,9 @@
       </div>
     </div>
     <div style="width: fit-content;  margin-left: auto; margin-right: auto; padding-top: 30px">
-      <button *ngIf = "required.length>0 || city.length>0 || requirementArray.length>0" (click)="searchTwitter()" style=" background-color: #1DA1F2; color: white" mat-raised-button><i style=" color: back;"
+      <button *ngIf = "required.length>0 || currentCity.length>0 || requirementArray.length>0" (click)="searchTwitter()" style=" background-color: #1DA1F2; color: white" mat-raised-button><i style=" color: back;"
           class="fa fa-search" aria-hidden="true"></i> Search Twitter</button>
-      <button disabled *ngIf = "other.length==0 && city.length==0 && requirementArray.length == 0" (click)="searchTwitter()" style=" background-color: #2b76a5; color: lightgray" mat-raised-button><i style=" color: back;"
+      <button disabled *ngIf = "other.length==0 && currentCity.length==0 && requirementArray.length == 0" (click)="searchTwitter()" style=" background-color: #2b76a5; color: lightgray" mat-raised-button><i style=" color: back;"
           class="fa fa-search" aria-hidden="true"></i> Search Twitter</button>
     </div>
 

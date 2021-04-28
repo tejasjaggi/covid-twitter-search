@@ -25,6 +25,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatListModule } from '@angular/material/list';
 import { ChartsComponent } from './charts/charts.component';
 import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
 
 
 
@@ -63,7 +64,8 @@ import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
     ReactiveFormsModule,
     MatGridListModule,
     MatCheckboxModule,
-    NgxMatSelectSearchModule
+    NgxMatSelectSearchModule,
+    MatButtonToggleModule
 
   ],
   providers: [],

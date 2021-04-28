@@ -10,9 +10,9 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
   encapsulation: ViewEncapsulation.None,
   animations: [
     trigger('scroll', [
-      state('on', style({left: '-100px'})),
+      state('on', style({left: '-500px'})),
       transition('* => *', [
-        style({left: '-100px'}),
+        style({left: '-500px'}),
         animate(20000, style({left: '100%'}))
       ])
     ])

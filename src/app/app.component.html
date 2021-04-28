@@ -2,7 +2,7 @@
   <mat-card style="background: #1DA1F2 !important">
     <mat-toolbar style="background: #1DA1F2; color: white">
       <mat-toolbar-row>
-        <span style="cursor: default;" *ngIf="!isSmallScreen"><i class="fa fa-heartbeat" aria-hidden="true"></i> Covid:
+        <span style="cursor: pointer;" (click)="goToSearch()" *ngIf="!isSmallScreen"><i class="fa fa-heartbeat" aria-hidden="true"></i> Covid:
           Twitter Search</span>
         <span *ngIf="isSmallScreen" style="font-size: 20px"><i class="fa fa-heartbeat" aria-hidden="true"></i> Covid:
           Twitter Search</span>
@@ -31,7 +31,7 @@
 </div>
 
     <div class="container" *ngIf="!isSmallScreen" style="  background: white; color:#1DA1F2; font-weight: bold; margin-top: 10px">
-        <div class="scrolling-text" [@scroll]="state" (@scroll.done)="scrollDone()">                     For any ideas on new features or any issues that you observe, please reach out to me at me@tejasjaggi.com . Stay Home, Stay Safe!                      </div>
+        <div class="scrolling-text" [@scroll]="state" (@scroll.done)="scrollDone()">                     For new feature requests or any issues that you observe, please reach out to me at me@tejasjaggi.com . Stay Home, Stay Safe!                      </div>
       </div>
 
 
@@ -40,7 +40,7 @@
 
 
 <router-outlet></router-outlet>
-
+<span style="padding: 30px"></span>
 
 <div *ngIf="!isSmallScreen" class="footer">
   <mat-card class="footer">
