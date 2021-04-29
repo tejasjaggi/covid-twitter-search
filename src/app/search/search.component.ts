@@ -38,10 +38,8 @@ export class SearchComponent implements OnInit {
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
-    this.http.get<any>('https://api.covid19india.org/state_district_wise.json').subscribe(data => {
-      console.log("DATA ", data)
+    this.http.get<any>('https://api.covid19india.org/state_district_wise.json').subscribe(data => {     
       let keys = Object.keys(data)
-      console.log(keys)
       for (let i = 0; i < keys.length; i++) {
         this.cities.push(...Object.keys(data[keys[i]].districtData))
       }
@@ -50,7 +48,6 @@ export class SearchComponent implements OnInit {
   }
   changeState(event)
   {
-    console.log("EVENTSSS ", event)
     this.currentCity = event.source.value
   }
 
@@ -60,7 +57,6 @@ export class SearchComponent implements OnInit {
     if (this.verified) {
       this.twitterSearch += 'verified+'
     }
-    console.log("TEST", this.currentCity)
     if (this.currentCity.length > 0) {
      
       this.twitterSearch += this.currentCity + '+'
@@ -100,7 +96,6 @@ export class SearchComponent implements OnInit {
   }
 
   getRequirements(event) {
-    console.log("event ", event)
     if (event.source._selected) {
       this.requirementArray.push(event.source.value)
     }

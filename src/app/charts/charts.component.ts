@@ -160,9 +160,8 @@ export class ChartsComponent implements OnInit {
     })
 
     this.http.get<any>('https://api.covid19india.org/state_district_wise.json').subscribe(data => {
-      console.log("DATA ", data)
+     
       let keys = Object.keys(data)
-      console.log(keys)
       for (let i = 0; i < keys.length; i++) {
         this.districts.push(...Object.keys(data[keys[i]].districtData))
         this.districtData.push(...Object.values(data[keys[i]]))
@@ -176,7 +175,6 @@ export class ChartsComponent implements OnInit {
 
 
   changeState(event) {
-    console.log(event)
     if (event.isUserInput && this.showState) {
       this.currentState = event.source.value
       this.barChartData = this.stateData.find(o => o.state === event.source.value);
@@ -184,7 +182,6 @@ export class ChartsComponent implements OnInit {
     }
     else if (event.isUserInput && !this.showState) {
       this.currentState = event.source.value
-      console.log(this.districtData)
       for (let item of this.districtData) {
 
         if (typeof (item) == 'object') {

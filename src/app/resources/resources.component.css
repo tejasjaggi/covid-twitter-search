@@ -7,7 +7,7 @@
   }
 @media only screen and (min-width: 600px) {
     .tabClass {
-        width: fit-content !important; height: 120px !important; float: left; margin-right: 10px;
+        width: fit-content !important; height: 140px !important; float: left; margin-right: 10px;
     }
   }
 

@@ -10,7 +10,10 @@ export class ResourcesComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+
+    
   }
+
 
   openWindow(url)
   {
