@@ -61,6 +61,14 @@ export class SearchComponent implements OnInit {
      
       this.twitterSearch += this.currentCity + '+'
     }
+    if(this.other.length>0)
+    {
+      this.twitterSearch+=this.other + '+'
+    }
+    if(this.required)
+    {
+      this.twitterSearch+= 'required+needed+requirement+'
+    }
 
     if (this.requirementArray.length > 0) {
       this.twitterSearch += '%28'
@@ -83,7 +91,7 @@ export class SearchComponent implements OnInit {
       this.twitterSearch += '-%22not+verified%22+-%22unverified%22'
     }
     if (!this.required) {
-      this.twitterSearch += '-%22needed%22+-%22need%22+-%22require%22'
+      this.twitterSearch += '-%22needed%22+-%22requirement%22+-%22required%22+-%22needs%22+-%22require%22'
     }
     this.twitterSearch += '&f=live'
     if (this.nearMe) {
