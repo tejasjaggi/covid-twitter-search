@@ -23,7 +23,6 @@ export class AppComponent {
   isSmallScreen: boolean = false;
   state: any = 0;
 
-
   constructor(private router: Router, public breakpointObserver: BreakpointObserver) {
 
   }

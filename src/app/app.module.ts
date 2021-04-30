@@ -26,6 +26,7 @@ import { MatListModule } from '@angular/material/list';
 import { ChartsComponent } from './charts/charts.component';
 import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { NgxTwitterTimelineModule } from 'ngx-twitter-timeline';
 
 
 
@@ -65,7 +66,9 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
     MatGridListModule,
     MatCheckboxModule,
     NgxMatSelectSearchModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+    NgxTwitterTimelineModule
+
 
   ],
   providers: [],

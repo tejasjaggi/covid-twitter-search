@@ -1,27 +1,32 @@
-
-
 @media only screen and (max-width: 600px) {
-    .tabClass {
-        width: 90%; 
-    }
+  .tabClass {
+    width: 90%;
   }
+}
+
 @media only screen and (min-width: 600px) {
-    .tabClass {
-        width: fit-content !important; height: 140px !important; float: left; margin-right: 10px;
-    }
+  .tabClass {
+    width: fit-content !important;
+    min-height: 190px !important;
+    min-width: 190px !important;
+    float: left;
+    margin-right: 10px;
+    cursor: pointer;
   }
+}
 
 
-  img {
-    width: 80px; padding-left: 10px; padding-right: 10px; height: 80px
-  }
+img {
+    width: auto !important;
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 80px
+}
 
-  picture {
-      cursor: pointer;
-  }
+picture {
+  cursor: pointer;
+}
 
-  mat-card {
-      cursor: pointer;
-  }
-
-
+mat-card {
+  cursor: pointer;
+}

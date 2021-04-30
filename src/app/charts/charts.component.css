@@ -7,3 +7,8 @@
     border-radius: 0px 20px 20px 0px !important;
     background: #28b5b5 !important;
 }
+
+mat-card {
+width: 100%;
+margin: 10px;
+}

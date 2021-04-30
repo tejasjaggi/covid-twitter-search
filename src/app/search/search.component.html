@@ -1,26 +1,26 @@
 <mat-card>
-    <div style="width: fit-content; margin-left: auto; margin-right: auto;">
-            <h2> Search Twitter for resources</h2>
-    </div>
-    
+  <div style="width: fit-content; margin-left: auto; margin-right: auto;">
+    <h2> Search Twitter for resources</h2>
+  </div>
+
   <form style="width: fit-content;
   margin-left: auto;
   margin-right: auto;">
 
     <div class="row" style="padding-bottom: 10px;  ">
       <div style="display: inline-block; padding-right: 30px;  ">
-           
+
 
         <mat-form-field>
-                <mat-label><i style=" color: #1DA1F2;" class="fa fa-map-marker" aria-hidden="true"></i> City</mat-label>
-                <mat-select [formControl]="state">
-                  <div class="row" style="background:  #f1f1f1; font-weight: bold"><i class="fa fa-search"
-                      aria-hidden="true"></i> <input autocomplete="off" matInput (keyup)="onKey($event.target.value)"
-                      placeholder="Search for City/District"> </div>
-        
-                  <mat-option (onSelectionChange)="changeState($event)" *ngFor="let city of cities"  [value]="city"  >{{city}}
-                  </mat-option>
-                </mat-select>
+          <mat-label><i style=" color: #1DA1F2;" class="fa fa-map-marker" aria-hidden="true"></i> City</mat-label>
+          <mat-select [formControl]="state">
+            <div class="row" style="background:  #f1f1f1; font-weight: bold"><i class="fa fa-search"
+                aria-hidden="true"></i> <input autocomplete="off" matInput (keyup)="onKey($event.target.value)"
+                placeholder="Search for City/District"> </div>
+
+            <mat-option (onSelectionChange)="changeState($event)" *ngFor="let city of cities" [value]="city">{{city}}
+            </mat-option>
+          </mat-select>
         </mat-form-field>
       </div>
 
@@ -29,7 +29,8 @@
         <mat-form-field>
           <mat-label><i style=" color: #1DA1F2;" class="fa fa-list-ul" aria-hidden="true"></i> Requirements</mat-label>
           <mat-select [formControl]="requirements" multiple>
-            <mat-option (onSelectionChange)="getRequirements($event)" *ngFor="let requirements of requirementsList" [value]="requirements"><i class={{requirements.icon}} aria-hidden="true"></i> {{requirements.value}}
+            <mat-option (onSelectionChange)="getRequirements($event)" *ngFor="let requirements of requirementsList"
+              [value]="requirements"><i class={{requirements.icon}} aria-hidden="true"></i> {{requirements.value}}
             </mat-option>
           </mat-select>
 
@@ -63,10 +64,12 @@
       </div>
     </div>
     <div style="width: fit-content;  margin-left: auto; margin-right: auto; padding-top: 30px">
-      <button *ngIf = "other.length>0 || currentCity.length>0 || requirementArray.length>0" (click)="searchTwitter()" style=" background-color: #1DA1F2; color: white" mat-raised-button><i style=" color: back;"
-          class="fa fa-search" aria-hidden="true"></i> Search Twitter</button>
-      <button disabled *ngIf = "other.length==0 && currentCity.length==0 && requirementArray.length == 0" (click)="searchTwitter()" style=" background-color: #2b76a5; color: lightgray" mat-raised-button><i style=" color: back;"
-          class="fa fa-search" aria-hidden="true"></i> Search Twitter</button>
+      <button *ngIf="other.length>0 || currentCity.length>0 || requirementArray.length>0" (click)="searchTwitter()"
+        style=" background-color: #1DA1F2; color: white" mat-raised-button><i style=" color: back;" class="fa fa-search"
+          aria-hidden="true"></i> Search Twitter</button>
+      <button disabled *ngIf="other.length==0 && currentCity.length==0 && requirementArray.length == 0"
+        (click)="searchTwitter()" style=" background-color: #2b76a5; color: lightgray" mat-raised-button><i
+          style=" color: back;" class="fa fa-search" aria-hidden="true"></i> Search Twitter</button>
     </div>
 
 
@@ -74,22 +77,68 @@
 
 
 </mat-card>
-<mat-card>
-  <div style="width: fit-content; margin-left: auto; margin-right: auto">
-        <div style="width: fit-content; margin-left: auto; margin-right: auto;">
-                <h2> Tips</h2>
+<div>
+  <mat-card>
+    <div style="width: fit-content; margin-left: auto; margin-right: auto">
+      <div style="width: fit-content; margin-left: auto; margin-right: auto;">
+        <h2> Tips</h2>
+      </div>
+      <mat-list>
+        <mat-list-item>• Make sure your twitter search is sorted by Latest to get the most recent data.
+        </mat-list-item>
+        <br>
+        <mat-list-item>• Don't select the 'verified' checkbox if you are in a small town. </mat-list-item>
+        <br>
+        <mat-list-item>• Select only limited key words for an efficient search. </mat-list-item>
+      </mat-list>
+    </div>
+  </mat-card>
+
+
+
+  <mat-grid-list cols="{{count}}" [rowHeight]="350">
+    <mat-grid-tile>
+      <mat-card style="width: 100%; height: 300px">
+        <div style="width: fit-content; margin-left: auto; margin-right: auto">
+          <a class="twitter-timeline" data-lang="en" data-height="300" data-theme="dark"
+            href="https://twitter.com/MomentsIndia/lists/covid-19-indian-doctors-14254?ref_src=twsrc%5Etfw">A Twitter
+            List by MomentsIndia</a>
+          <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
         </div>
-    <mat-list>
-      <mat-list-item>• Make sure your twitter search is sorted by Latest to get the most recent data. </mat-list-item>
-      <br>
-      <mat-list-item>• Don't select the 'verified' checkbox if you are in a small town. </mat-list-item>
-      <br>
-      <mat-list-item>• Select only limited key words for an efficient search. </mat-list-item>
-    </mat-list>
-  </div>
+      </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <mat-card style="width: 100%; height: 300px">
+        <div style="width: fit-content; margin-left: auto; margin-right: auto">
+          <a class="twitter-timeline" data-lang="en" data-height="300" data-theme="dark"
+            href="https://twitter.com/MomentsIndia/lists/covid-19-fact-checkers-11883?ref_src=twsrc%5Etfw">A Twitter
+            List by MomentsIndia</a>
+          <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        </div>
+      </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <mat-card style="width: 100%; height: 300px">
+        <div style="width: fit-content; margin-left: auto; margin-right: auto">
+          <ngx-twitter-timeline style="margin-left: auto; margin-right: auto"
+            [data]="{sourceType: 'url', url: 'https://twitter.com/covidnewsbymib?lang=en'}"
+            [opts]="{tweetLimit: '10px', height: '300', theme: 'dark'}"></ngx-twitter-timeline>
+        </div>
+      </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <mat-card style="width: 100%; height: 300px">
+        <div style="width: fit-content; margin-left: auto; margin-right: auto">
+          <a class="twitter-timeline" data-lang="en" data-height="300" data-theme="dark"
+            href="https://twitter.com/MomentsIndia/lists/covid-19-state-resources-82833?ref_src=twsrc%5Etfw">A Twitter
+            List by MomentsIndia</a>
+          <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        </div>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
 
-</mat-card>
+</div>
 
 
-  <app-charts> </app-charts>
-
+<app-charts> </app-charts>

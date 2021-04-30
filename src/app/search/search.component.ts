@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { BreakpointState, BreakpointObserver } from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-search',
@@ -34,10 +35,20 @@ export class SearchComponent implements OnInit {
   requirementArray: any = [];
   cities: any= [];
   metaCities: any;
+  count: number = 4;
+  isSmallScreen: boolean = false;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, public breakpointObserver: BreakpointObserver) { }
 
   ngOnInit(): void {
+    this.breakpointObserver
+      .observe(['(max-width: 700px)'])
+      .subscribe((state: BreakpointState) => {
+       if(state.matches)
+       {
+         this.count = 1
+       }
+      })
     this.http.get<any>('https://api.covid19india.org/state_district_wise.json').subscribe(data => {     
       let keys = Object.keys(data)
       for (let i = 0; i < keys.length; i++) {

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import * as HighCharts from 'highcharts';
 import { HttpClient } from '@angular/common/http';
 import { FormControl } from '@angular/forms';
+import { BreakpointState, BreakpointObserver } from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-charts',
@@ -25,9 +26,10 @@ export class ChartsComponent implements OnInit {
   districts: any = []
   metaDistricts: any;
   districtData: any = [];
+  count: number =2;
 
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, public breakpointObserver: BreakpointObserver) {
 
 
   }
@@ -57,8 +59,8 @@ export class ChartsComponent implements OnInit {
       },
       legend: {
         layout: 'vertical',
-        align: 'right',
-        verticalAlign: 'middle'
+        align: 'center',
+        verticalAlign: 'bottom'
       },
       colors: [
         '#00adb5',
@@ -137,6 +139,15 @@ export class ChartsComponent implements OnInit {
     });
   }
   ngOnInit(): void {
+
+    this.breakpointObserver
+    .observe(['(max-width: 700px)'])
+    .subscribe((state: BreakpointState) => {
+     if(state.matches)
+     {
+       this.count = 1
+     }
+    })
     document.getElementById('right').style.opacity = "50%"
       document.getElementById('left').style.opacity = "100%"
 
