@@ -43,7 +43,11 @@ export class SearchComponent implements OnInit {
       for (let i = 0; i < keys.length; i++) {
         this.cities.push(...Object.keys(data[keys[i]].districtData))
       }
+      this.cities.push('Delhi')
+      
       this.metaCities = this.cities
+
+
     })
   }
   changeState(event)
@@ -91,7 +95,7 @@ export class SearchComponent implements OnInit {
       this.twitterSearch += '-%22not+verified%22+-%22unverified%22'
     }
     if (!this.required) {
-      this.twitterSearch += '-%22needed%22+-%22requirement%22+-%22required%22+-%22needs%22+-%22require%22'
+      this.twitterSearch += '-%22needed%22+-%22requirement%22+-%22required%22+-%22needs%22+-%22need%22+-%22require%22'
     }
     this.twitterSearch += '&f=live'
     if (this.nearMe) {
