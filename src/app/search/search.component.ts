@@ -53,7 +53,7 @@ export class SearchComponent implements OnInit {
       for (let i = 0; i < keys.length; i++) {
         this.cities.push(...Object.keys(data[keys[i]].districtData))
       }
-      this.cities.push('Delhi', 'Bangalore', 'Bengaluru', 'Pondicherry')
+      this.cities.push('Delhi', 'Bangalore', 'Bengaluru', 'Pondicherry', "Mangalore")
 
       this.metaCities = this.cities
 
