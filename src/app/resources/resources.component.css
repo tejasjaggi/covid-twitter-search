@@ -1,6 +1,7 @@
 @media only screen and (max-width: 600px) {
   .tabClass {
     width: 90%;
+    float: center;
   }
 }
 

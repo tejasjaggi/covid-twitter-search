@@ -31,9 +31,9 @@ export class SearchComponent implements OnInit {
     { value: 'Favipiravir', icon: 'fa fa-tablets' },
     { value: 'Food', icon: 'fa fa-utensils' },
     { value: 'plasma', icon: 'fa fa-disease' },
-   ];
+  ];
   requirementArray: any = [];
-  cities: any= [];
+  cities: any = [];
   metaCities: any;
   count: number = 4;
   isSmallScreen: boolean = false;
@@ -44,25 +44,23 @@ export class SearchComponent implements OnInit {
     this.breakpointObserver
       .observe(['(max-width: 700px)'])
       .subscribe((state: BreakpointState) => {
-       if(state.matches)
-       {
-         this.count = 1
-       }
+        if (state.matches) {
+          this.count = 1
+        }
       })
-    this.http.get<any>('https://api.covid19india.org/state_district_wise.json').subscribe(data => {     
+    this.http.get<any>('https://api.covid19india.org/state_district_wise.json').subscribe(data => {
       let keys = Object.keys(data)
       for (let i = 0; i < keys.length; i++) {
         this.cities.push(...Object.keys(data[keys[i]].districtData))
       }
-      this.cities.push('Delhi')
-      
+      this.cities.push('Delhi', 'Bangalore', 'Bengaluru', 'Pondicherry')
+
       this.metaCities = this.cities
 
 
     })
   }
-  changeState(event)
-  {
+  changeState(event) {
     this.currentCity = event.source.value
   }
 
@@ -73,26 +71,22 @@ export class SearchComponent implements OnInit {
       this.twitterSearch += 'verified+'
     }
     if (this.currentCity.length > 0) {
-     
+
       this.twitterSearch += this.currentCity + '+'
     }
-    if(this.other.length>0)
-    {
-      this.twitterSearch+=this.other + '+'
+    if (this.other.length > 0) {
+      this.twitterSearch += this.other + '+'
     }
-    if(this.required)
-    {
-      this.twitterSearch+= 'required+needed+requirement+'
+    if (this.required) {
+      this.twitterSearch += 'required+needed+requirement+'
     }
 
     if (this.requirementArray.length > 0) {
       this.twitterSearch += '%28'
-      if (this.other.length > 0) {
-        this.twitterSearch += this.other
-        if (this.requirementArray.length > 0) {
-          this.twitterSearch += "+OR+"
-        }
+      if (this.requirementArray.length > 0) {
+        this.twitterSearch += "+OR+"
       }
+
       for (let i = 0; i < this.requirementArray.length; i++) {
         this.twitterSearch += this.requirementArray[i].value
         if (i != this.requirementArray.length - 1) {
@@ -131,23 +125,23 @@ export class SearchComponent implements OnInit {
   }
 
   onKey(value) {
-    
-      this.cities = this.search(value);
-    
+
+    this.cities = this.search(value);
+
 
   }
 
   // Filter the states list and send back to populate the selectedStates**
   search(value: string) {
-      this.cities = this.metaCities
-      let filter = value.toLowerCase();
-      let filtered = []
-      for (let i = 0; i < this.cities.length; i++) {
-        if (this.cities[i].toLowerCase().includes(filter)) {
-          filtered.push(this.cities[i])
-        }
+    this.cities = this.metaCities
+    let filter = value.toLowerCase();
+    let filtered = []
+    for (let i = 0; i < this.cities.length; i++) {
+      if (this.cities[i].toLowerCase().includes(filter)) {
+        filtered.push(this.cities[i])
       }
-      return filtered
+    }
+    return filtered
 
   }
 
