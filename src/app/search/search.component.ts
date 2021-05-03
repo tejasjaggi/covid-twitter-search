@@ -35,8 +35,9 @@ export class SearchComponent implements OnInit {
   requirementArray: any = [];
   cities: any = [];
   metaCities: any;
-  count: number = 4;
+  countTwitterWidgets: number = 4;
   isSmallScreen: boolean = false;
+  countNewsWidgets: number = 2;
 
   constructor(private http: HttpClient, public breakpointObserver: BreakpointObserver) { }
 
@@ -45,11 +46,13 @@ export class SearchComponent implements OnInit {
       .observe(['(max-width: 700px)'])
       .subscribe((state: BreakpointState) => {
         if (state.matches) {
-          this.count = 1
+          this.countTwitterWidgets = 1
+          this.countNewsWidgets = 1
         }
       })
     this.http.get<any>('https://api.covid19india.org/state_district_wise.json').subscribe(data => {
       let keys = Object.keys(data)
+      console.log(data)
       for (let i = 0; i < keys.length; i++) {
         this.cities.push(...Object.keys(data[keys[i]].districtData))
       }
