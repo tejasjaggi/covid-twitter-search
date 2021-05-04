@@ -1,5 +1,5 @@
 <div>
-  <mat-card style="background: #1DA1F2 !important">
+  <mat-card style="background: #1DA1F2 !important; height: fit-content">
     <mat-toolbar style="background: #1DA1F2; color: white">
       <mat-toolbar-row>
         <span style="cursor: pointer;" (click)="goToSearch()" *ngIf="!isSmallScreen"><i class="fa fa-heartbeat" aria-hidden="true"></i> Covid:
@@ -30,8 +30,8 @@
   </mat-card>
 </div>
 
-    <div class="container" *ngIf="!isSmallScreen" style="  background: white; color:#1DA1F2; font-weight: bold; margin-top: 10px">
-        <div class="scrolling-text" [@scroll]="state" (@scroll.done)="scrollDone()">                     For new feature requests or any issues that you observe, please reach out to me at me@tejasjaggi.com . Stay Home, Stay Safe!                      </div>
+    <div class="container"  style="  background: white; color:#1DA1F2; font-weight: bold; margin-top: 10px">
+        <div class="scrolling-text" [@scroll]="state" (@scroll.done)="scrollDone()">                     In case you are in need of ANY resources all over India, please reach out to me at me@tejasjaggi.com and I will do my best to arrange the same for you. Stay Home, Stay Safe!                      </div>
       </div>
 
 
@@ -44,14 +44,14 @@
 
 <div *ngIf="!isSmallScreen" class="footer">
   <mat-card class="footer">
-      <div style="width: fit-content; margin-left: auto; margin-right: auto;">
+      <div style="width: fit-content; margin-left: auto; margin-right: auto; ">
           Made with <i class="fa fa-heartbeat" aria-hidden="true"></i> by <a style="cursor: pointer; color: white" (click)="jagmeister()">Jagmeister</a> .
       </div>
   </mat-card>
 </div>
 
 <mat-card *ngIf="isSmallScreen" style="background-color: #1DA1F2;
-color: white;">
+color: white; height: fit-content">
 <div style="width: fit-content; margin-left: auto; margin-right: auto;">
     Made with <i class="fa fa-heartbeat" aria-hidden="true"></i> by <a style="cursor: pointer; color: white" (click)="jagmeister()">Jagmeister</a> .
 </div>

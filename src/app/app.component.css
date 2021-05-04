@@ -6,6 +6,7 @@
   background-color: #1DA1F2;
   color: white;
   text-align: center;
+  height: fit-content !important;
 }
 
 .header {
@@ -17,6 +18,7 @@
   color: white;
   text-align: center;
   z-index: 10;
+  height: fit-content !important;
 }
 
 .container {

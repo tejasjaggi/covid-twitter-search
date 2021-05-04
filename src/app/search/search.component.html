@@ -1,4 +1,4 @@
-<mat-card>
+<mat-card class="search" >
   <div style="width: fit-content; margin-left: auto; margin-right: auto;">
     <h2> Search Twitter for resources</h2>
   </div>
@@ -78,9 +78,9 @@
 
 </mat-card>
 <div>
-    <mat-grid-list cols="{{countNewsWidgets}}" [rowHeight]="350">
+    <mat-grid-list cols="{{countNewsWidgets}}" [rowHeight]="rowHeight">
         <mat-grid-tile>
-  <mat-card style="width: 100%; height: 300px">
+  <mat-card style="width: 100%;">
     <div style="width: fit-content; margin-left: auto; margin-right: auto">
       <div style="width: fit-content; margin-left: auto; margin-right: auto;">
         <h2> Tips</h2>
@@ -92,17 +92,21 @@
         <mat-list-item>• Don't select the 'verified' checkbox if you are in a small town. </mat-list-item>
         <br>
         <mat-list-item>• Select only limited key words for an efficient search. </mat-list-item>
+        <br>
+        <mat-list-item>• Sign up to donate or search for plasma at https://plasmadonors.thebetterindia.com/  </mat-list-item>
+        
+       
       </mat-list>
     </div>
   </mat-card>
   </mat-grid-tile>
   <mat-grid-tile>
-  <mat-card style="width: 100%; height: 300px">
+  <mat-card style="width: 100%; ">
       <div style="width: fit-content; margin-left: auto; margin-right: auto;">
           <h2> Setup Covid vaccine alerts</h2>
         </div>
     <div>
-     <iframe width="100%" height="250px"  src="https://www.labnol.org/covid19-vaccine-tracker-210501" frameborder="0"></iframe>
+     <iframe width="100%" class="vaccine"   src="https://getjab.in/" frameborder="0"></iframe>
     </div>
   </mat-card>
 </mat-grid-tile>

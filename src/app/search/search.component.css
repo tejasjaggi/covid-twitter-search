@@ -13,6 +13,34 @@
     border: 2px solid red;
 } 
 
-mat-card {
-    margin: 10px
-}
+@media only screen and (max-width: 600px) {
+    .mat-card {
+        margin: 10px;
+        height: 350px;
+    
+    }
+    .vaccine{
+        height: 300px;
+    }
+    .search{
+        height: fit-content
+    }
+    
+  }
+  
+  @media only screen and (min-width: 600px) {
+    .mat-card {
+        margin: 10px;
+        height: 800px
+    
+    }
+    .vaccine{
+        height: 740px;
+    }
+    .search{
+        height: fit-content
+    }
+  }
+  
+
+

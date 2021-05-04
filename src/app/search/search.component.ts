@@ -38,6 +38,7 @@ export class SearchComponent implements OnInit {
   countTwitterWidgets: number = 4;
   isSmallScreen: boolean = false;
   countNewsWidgets: number = 2;
+  rowHeight: number = 800;
 
   constructor(private http: HttpClient, public breakpointObserver: BreakpointObserver) { }
 
@@ -48,6 +49,7 @@ export class SearchComponent implements OnInit {
         if (state.matches) {
           this.countTwitterWidgets = 1
           this.countNewsWidgets = 1
+          this.rowHeight = 350
         }
       })
     this.http.get<any>('https://api.covid19india.org/state_district_wise.json').subscribe(data => {
